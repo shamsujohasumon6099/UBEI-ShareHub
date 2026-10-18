@@ -1,0 +1,43 @@
+/* Semantic overrides shared by both panels. Keep app.css as the product layout. */
+:root{--muted:#526176;--accent-btn:#4F46E5}
+:root[data-theme="dark"]{--muted:#A4AFC2;--accent-btn:#5755D9;--success:#55E2B6;--warn:#FFD16A;--danger:#FF9A9A}
+button,a,input,select,textarea{touch-action:manipulation}
+.btn.success{background:#047857;border-color:#047857}.btn.fb{background:#1765CF;border-color:#1765CF}
+/* These hero rules previously forced dark text onto theme-dependent dark buttons. */
+.th-side .btn:not(.primary):not(.fb):not(.success):not(.danger):not(.th-ghost),.today-hero.empty .btn:not(.primary):not(.fb){background:#fff;color:#172033;border-color:#fff}
+.th-side .btn.primary,.today-hero.empty .btn.primary{background:var(--accent-btn);color:#fff;border-color:var(--accent-btn)}
+:root[data-theme="dark"] .chip,:root[data-theme="dark"] .demo-list button,:root[data-theme="dark"] .setup-step,:root[data-theme="dark"] .pick{color:var(--text)}
+input,textarea,select,.input{color:var(--text)}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
+select option{background:var(--surface);color:var(--text)}
+[hidden]{display:none!important}
+:focus-visible,[role="button"]:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.btn[disabled]{cursor:wait}.is-saving form [type="submit"]{opacity:.55;pointer-events:none}
+.field input[readonly]{background:var(--surface-2);color:var(--muted)}
+body.modal-open{overflow:hidden}
+.skip-link{position:fixed;left:16px;top:-100px;z-index:500;background:var(--surface);color:var(--text);padding:12px;border-radius:8px}
+.skip-link:focus{top:38px}
+.sync-state{display:flex;align-items:center;gap:6px;min-height:32px;padding:4px 8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);border-radius:8px;font-size:12px;font-weight:600}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--success)}
+[data-sync="error"] .sync-dot,[data-sync="offline"] .sync-dot{background:var(--danger)}
+[data-sync="saving"] .sync-dot{background:var(--warn)}
+#environment:empty{display:none}
+body[data-mode="demo"]{padding-top:30px}
+body[data-mode="demo"] #environment{position:fixed;top:0;inset-inline:0;min-height:30px;background:#FEF3C7;color:#713F12;text-align:center;padding:5px 8px;z-index:200;font-size:11px;font-weight:700}
+body[data-mode="demo"] .sidebar{top:30px}body[data-mode="demo"] .topbar{top:30px}
+body[data-mode="demo"] .login{min-height:calc(100dvh - 30px)}
+.loading-screen,.setup-screen{min-height:100dvh;display:grid;place-items:center;padding:24px}
+.setup-screen>.card{max-width:680px}.loading-screen{font-weight:700;color:var(--muted)}
+.brand{font-size:15px}.brand small{font-size:11px}
+.notice-banner{background:linear-gradient(120deg,#92400E,#9A3412);color:#fff}
+.nav-badge{background:#B45309}.bell-n{background:#B91C1C}
+.btn.wa-btn,.tpill.wa-pill{color:#147B37}:root[data-theme="dark"] .btn.wa-btn,:root[data-theme="dark"] .tpill.wa-pill{color:#6EE7A0}
+@media(max-width:560px){.sync-state{font-size:11px}.brand{font-size:15px}.page-title h1{font-size:18px}.topbar{gap:8px}.login-form-wrap{padding-top:76px}#environment{line-height:20px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media print{#environment,.sync-state,.skip-link{display:none!important}body[data-mode="demo"]{padding-top:0}}
+:root{--success:#047857;--danger:#B91C1C}
+:root[data-theme="dark"]{--success:#55E2B6;--danger:#FF9A9A}
+.switch input:checked{background:#047857}
+.btn.wa-btn,.tpill.wa-pill{color:#11642E}
+.is-busy #app,.is-busy #modal,.is-refreshing #app{pointer-events:none}
+.is-busy,.is-refreshing{cursor:progress}

@@ -1,0 +1,5 @@
+project_id = "ubei-sharehub"
+[functions.manage-user]
+# The function verifies the bearer token with Auth.getUser itself.
+# This also supports projects using the newer publishable API keys.
+verify_jwt = false

@@ -1,0 +1,5 @@
+{
+  "checks": 11,
+  "errors": [],
+  "scope": "SDK + real PostgreSQL RPCs; local Auth double; hosted services untested"
+}
