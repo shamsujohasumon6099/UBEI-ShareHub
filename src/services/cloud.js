@@ -43,7 +43,11 @@ function valueFor(item,table,key){const value=item[fields[table][key]];return va
 async function media(value){
   if (!value || !value.startsWith('data:')) return urls.get(value)||value||'';
   if (!/^data:image\/jpeg;base64,/.test(value)) throw new Error('Use a JPEG image');
-  const blob=await (await fetch(value)).blob();
+  const bytes = Uint8Array.from(
+  atob(value.slice(value.indexOf(',') + 1)),
+  char => char.charCodeAt(0)
+);
+const blob = new Blob([bytes], {type: 'image/jpeg'});
   if(blob.size>1048576)throw new Error('The compressed image must be smaller than 1 MB');
   const user=sessionUser||ensure(await client.auth.getUser()).user;
   const path=`${user.id}/${crypto.randomUUID()}.jpg`;
